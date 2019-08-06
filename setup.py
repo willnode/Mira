@@ -15,4 +15,4 @@ mysql-connector-python-rf""".splitlines(False)
 for line in reqs:
     print line
     # call pip's main function with each requirement
-    pip.__main__._main(['install','-U', line])
+    pip.main(['install','-U', line])
