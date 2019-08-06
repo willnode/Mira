@@ -1,0 +1,7 @@
+gensim
+tensorflow
+line-bot-sdk
+scikit-learn
+numpy
+flask
+mysql
