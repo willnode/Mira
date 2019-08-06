@@ -1,3 +1,4 @@
+wheel==0.30.0
 gensim
 tensorflow
 line-bot-sdk
