@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-   name='foo',
+   name='Mira',
    version='1.0',
    description='A useful module',
    author='Man Foo',
    author_email='foomail@foo.com',
-   packages=['foo'],  #same as name
+   packages=['Mira'],  #same as name
    install_requires=["gensim",
 "tensorflow",
 "line-bot-sdk",
