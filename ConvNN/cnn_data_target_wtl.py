@@ -58,13 +58,13 @@ predictions = np.array(predictions)
 labels = [np.argmax(Y_test[i]) for i in range(len(Y_test))]
 labels = np.array(labels)
 
-print predictions
-print labels
+print(predictions)
+print(labels)
 
-print "Accuracy: " + str(100*metrics.accuracy_score(labels, predictions))
-print "Precision: " + str(100*metrics.precision_score(labels, predictions, average="weighted"))
-print "Recall: " + str(100*metrics.recall_score(labels, predictions, average="weighted"))
-print "f1_score: " + str(100*metrics.f1_score(labels, predictions, average="weighted"))
+print("Accuracy: " + str(100*metrics.accuracy_score(labels, predictions)))
+print("Precision: " + str(100*metrics.precision_score(labels, predictions, average="weighted")))
+print("Recall: " + str(100*metrics.recall_score(labels, predictions, average="weighted")))
+print("f1_score: " + str(100*metrics.f1_score(labels, predictions, average="weighted")))
 
-print model.summary()
-print model.evaluate(X_test, Y_test, batch_size=32)
+print(model.summary())
+print(model.evaluate(X_test, Y_test, batch_size=32))

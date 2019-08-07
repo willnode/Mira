@@ -27,13 +27,13 @@ with open("./GloVe-1.2/vectors.txt") as f:
             pbar.update(1)
 
         pbar.close()
-        print "DB COMMIT..."
+        print("DB COMMIT...")
         db.commit()
     except mysql.connector.Error as err:
-        print("Something went wrong: {}".format(err))
-        print sql
+        print(("Something went wrong: {}".format(err)))
+        print(sql)
         db.rollback()
 
-print "SUCCESS"
+print("SUCCESS")
 db.close()
 cursor.close()

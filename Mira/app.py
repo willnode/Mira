@@ -12,7 +12,7 @@
 #  License for the specific language governing permissions and limitations
 #  under the License.
 
-from __future__ import unicode_literals
+
 
 import os
 import re
@@ -98,7 +98,7 @@ def myTokenizer(content, lower=True):
         if lower == True:
             term = term.lower()
         token.append(term)
-    tokenized = filter(None, token)
+    tokenized = [_f for _f in token if _f]
 
     return tokenized
 
@@ -127,10 +127,10 @@ def getPrediction(doc):
     vec = toSentenceEmbd(doc)
     vec = vec.reshape((1, 300, 1))
     prediction = model.predict([vec])[0]
-    print prediction
+    print(prediction)
     argmax = np.argmax(prediction)
     if prediction[argmax] < 0.7:
-        print "DOUBT"
+        print("DOUBT")
         ids = []
         for i in range(3):
             prediction[argmax] = -1
@@ -151,7 +151,7 @@ def isDirectFaq(text):
     with open("answercls.json", 'r') as answercls:
         data = json.load(answercls, strict=False)
 
-    for key, val in data.iteritems():
+    for key, val in data.items():
         if text == val[0]:
             answercls.close()
             return True, [key]
@@ -204,18 +204,18 @@ def handle_text_message(event):
         act = []
         with open("answercls.json", 'r') as answercls:
             data = json.load(answercls, strict=False)
-        print data[str(id[1])]
+        print(data[str(id[1])])
         for i in id:
             i = str(i)
             t = data[i][0]
-            print t
-            print type(t)
+            print(t)
+            print(type(t))
             act.append(MessageTemplateAction(label=t, text=t))
         # print act
-        print MessageTemplateAction(label="Jumlah Kelompok", text="Jumlah Kelompok")
+        print(MessageTemplateAction(label="Jumlah Kelompok", text="Jumlah Kelompok"))
 
         buttons_template = ButtonsTemplate(title='Hm, Kamu tanya apa sebenarnya?', text='Pilih satu ya hehehe :)', actions=act)
-        print buttons_template
+        print(buttons_template)
 
         template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=buttons_template)

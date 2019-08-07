@@ -35,7 +35,7 @@ checkpointer = ModelCheckpoint(filepath=checkpoint_path, verbose=1, save_best_on
 
 trained_model = load_model(model_source)
 # trained_model_target = load_model(model_target)
-print trained_model.summary()
+print(trained_model.summary())
 
 model = Sequential()
 for layer in trained_model.layers[:1]:
@@ -50,7 +50,7 @@ model.add(Dense(len(Y[0]), activation='softmax'))
 #     layer.trainable = False
 # model.layers[5].trainable = False
 
-print model.summary()
+print(model.summary())
 
 model.compile(loss='binary_crossentropy',
               optimizer=Adam(lr=0.001, decay=1e-8),
@@ -73,13 +73,13 @@ predictions = np.array(predictions)
 labels = [np.argmax(Y_test[i]) for i in range(len(Y_test))]
 labels = np.array(labels)
 
-print predictions
-print labels
+print(predictions)
+print(labels)
 
-print "Accuracy: " + str(100*metrics.accuracy_score(labels, predictions))
-print "Precision: " + str(100*metrics.precision_score(labels, predictions, average="weighted"))
-print "Recall: " + str(100*metrics.recall_score(labels, predictions, average="weighted"))
-print "f1_score: " + str(100*metrics.f1_score(labels, predictions, average="weighted"))
+print("Accuracy: " + str(100*metrics.accuracy_score(labels, predictions)))
+print("Precision: " + str(100*metrics.precision_score(labels, predictions, average="weighted")))
+print("Recall: " + str(100*metrics.recall_score(labels, predictions, average="weighted")))
+print("f1_score: " + str(100*metrics.f1_score(labels, predictions, average="weighted")))
 
-print model.summary()
-print model.evaluate(X_test, Y_test, batch_size=32)
+print(model.summary())
+print(model.evaluate(X_test, Y_test, batch_size=32))
