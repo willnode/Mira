@@ -6,6 +6,7 @@ tensorflow
 line-bot-sdk
 scikit-learn
 numpy
+keras
 flask
 mysql
 mysql-connector-python
